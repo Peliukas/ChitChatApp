@@ -1,0 +1,177 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+
+/* Common */
+.fa {
+    font-family: "FontAwesome";
+}
+
+.im {
+    font-family: 'icomoon';
+}
+
+.page {
+    background-color: #ffffff;
+    color: #000000;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    color: #ffffff;
+    background-color: #3C59FD;
+    margin: 20 0 30 0;
+}
+
+.btn:highlighted {
+    background-color: #2241F0;
+}
+
+.flexbox-item {
+    width: 95%;
+    text-align: center;
+}
+
+.action-bar {
+    background-color: #63ADF2;
+    color: #2A2D43;
+    padding-right: 10;
+}
+
+.hr {
+    background-color: #3C59FD;
+    width: 95%;
+    margin-top: 21;
+    height: 1;
+}
+
+/* Login */
+.page-login-container {
+    background-color: transparent;
+    android-status-bar-background: #3C59FD;
+}
+
+.page-login {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+}
+
+.company-name-container {
+    horizontalAlignment: center;
+}
+
+.login-input-fields {
+    margin-top: 10;
+    width: 80%;
+}
+
+.company-logo {
+    margin-top: 100;
+    flex-grow: 1;
+    margin-left: 10;
+}
+
+.btn-login {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.btn-login:highlighted {
+    background-color: #EAEAEA;
+    color: #000000;
+}
+
+/*  Welcome */
+
+.title {
+    color: #3C59FD;
+    margin-top: 20;
+}
+
+.flexbox-item Label {
+    margin-bottom: 4;
+}
+
+.menu-container {
+    width: 90%;
+}
+
+.menu-item {
+    vertical-align: top;
+    width: 50%;
+    margin-bottom: 16;
+}
+
+.menu-icon {
+    width: 90;
+    height: 90;
+    vertical-align: top;
+    border-width: 1;
+    border-radius: 50%;
+    font-size: 36;
+    color: #3C59FD;
+    background-color: #ffffff;
+    border-color: #d8d8d8;
+}
+
+.action-button {
+    font-size: 20;
+}
+
+.login-input-field {
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid white;
+    placeholder-color: lightgray;
+}
+
+/*HOME CONTACT LIST*/
+
+.contact-name-item-label {
+    color: black;
+    padding-left: 10px;
+}
+
+.user-avatar-label {
+    background-color: limegreen;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    width: 70px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 100px;
+}
+
+.search-icon {
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.search-for-contact-input-wrapper {
+    background: #A7CCED;
+    padding: 5px;
+}
+
+.search-for-contact-input {
+    color: #2A2D43;
+    placeholder-color: #82A0BC;
+}

@@ -1,0 +1,32 @@
+<Page class="page">
+    <Page.actionBar>
+        <ActionBar class="action-bar" title="ChitChat">
+            <ActionItem android.position="actionBar" ios.position="right" (tap)="onProfileButtonTap()">
+                <Label text="&#xf2bd;" class="fa action-button"></Label>
+            </ActionItem>
+            <!--<ActionItem  android.position="actionBar" ios.position="right" (tap)="logout()">-->
+            <!--<Label text="&#xf2bd;" class="fa sign-out-alt"></Label>-->
+            <!--</ActionItem>-->
+        </ActionBar>
+    </Page.actionBar>
+    <StackLayout>
+        <!--<StackLayout>-->
+        <!--<GridLayout columns="auto, 300" rows="60">-->
+        <!--&lt;!&ndash;<FlexBoxLayout col="0" row="0" backgroundImage="res://search" class="search-icon"></FlexBoxLayout>&ndash;&gt;-->
+        <!--</GridLayout>-->
+        <!--</StackLayout>-->
+        <GridLayout rows="40" columns="30, 270" class="search-for-contact-input-wrapper">
+            <FlexBoxLayout col="0" row="0" backgroundImage="res://search" class="search-icon"></FlexBoxLayout>
+            <TextField col="1" row="0" class="search-for-contact-input" hint="Search"></TextField>
+        </GridLayout>
+        <ListView [items]="contactList" class="list-group">
+            <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                <GridLayout columns="50, auto, *" rows="50, auto, *" class="list-group-item"
+                            (tap)="startConversation()">
+                    <Label class="user-avatar-label" row="0" col="0" text='{{item[0]}}'></Label>
+                    <Label row="0" col="1" text='{{item}}' class="contact-name-item-label"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+    </StackLayout>
+</Page>

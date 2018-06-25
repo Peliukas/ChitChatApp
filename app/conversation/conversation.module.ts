@@ -1,0 +1,20 @@
+import {NgModule, NO_ERRORS_SCHEMA} from "@angular/core";
+import {NativeScriptCommonModule} from "nativescript-angular/common";
+
+import {ConversationRoutingModule} from "./conversation-routing.module";
+import {ConversationComponent} from "./conversation.component";
+
+@NgModule({
+    imports: [
+        NativeScriptCommonModule,
+        ConversationRoutingModule
+    ],
+    declarations: [
+        ConversationComponent
+    ],
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
+})
+export class ConversationModule {
+}
