@@ -175,3 +175,46 @@ refer to http://docs.nativescript.org/ui/theme.
     color: #2A2D43;
     placeholder-color: #82A0BC;
 }
+
+.conversation-container {
+
+}
+
+.user-message {
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    width: 120;
+}
+
+.written-message {
+    background: #E55812;
+    color: white;
+}
+
+.received-message {
+    background: #2A2D43;
+    color: white;
+}
+
+.message-body-input {
+    background: #2A2D43;
+    margin-right: 10;
+    color: white;
+    placeholder-color: gray;
+    padding-left: 10;
+    font-size: small;
+    height: 40;
+    border-radius: 30px;
+}
+
+.message-input-group {
+    padding-left: 7;
+    padding-right: 7;
+}
+
+.send-message-button {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

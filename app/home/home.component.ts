@@ -19,10 +19,22 @@ export class HomeComponent implements OnInit {
     constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
         this.page.actionBarHidden = false;
         this.contactList = [
-            'mister twister',
-            'broski swarowski',
-            'dog bulldog',
-            'merry cherry'
+            {
+                id: 0,
+                userName: 'mister twister'
+            },
+            {
+                id: 1,
+                userName: 'broski swarowski'
+            },
+            {
+                id: 2,
+                userName: 'dog bulldog'
+            },
+            {
+                id: 3,
+                userName: 'merry cherry'
+            }
         ];
     }
 
@@ -60,9 +72,9 @@ export class HomeComponent implements OnInit {
         alert("Navigate to profile page");
     }
 
-    public startConversation() {
+    public startConversation(userName: string) {
         this.zone.run(() => {
-            this._routerExtensions.navigate(["conversation"], {
+            this._routerExtensions.navigate(["conversation", userName], {
                 clearHistory: true,
                 animated: true,
                 transition: {

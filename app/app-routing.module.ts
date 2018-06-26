@@ -6,7 +6,7 @@ import {LoggedInLazyLoadGuard} from "./logged-in-lazy-load.guard";
 const routes: Routes = [
     {path: "", redirectTo: "/home", pathMatch: "full"},
     {path: "login", loadChildren: "./login/login.module#LoginModule"},
-    {path: "conversation", loadChildren: "./conversation/conversation.module#ConversationModule"},
+    {path: "conversation/:userID", loadChildren: "./conversation/conversation.module#ConversationModule"},
     {path: "home", loadChildren: "./home/home.module#HomeModule", canLoad: [LoggedInLazyLoadGuard]}
 ];
 

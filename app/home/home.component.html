@@ -22,9 +22,9 @@
         <ListView [items]="contactList" class="list-group">
             <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
                 <GridLayout columns="50, auto, *" rows="50, auto, *" class="list-group-item"
-                            (tap)="startConversation()">
-                    <Label class="user-avatar-label" row="0" col="0" text='{{item[0]}}'></Label>
-                    <Label row="0" col="1" text='{{item}}' class="contact-name-item-label"></Label>
+                            (tap)="startConversation(item.id)">
+                    <Label class="user-avatar-label" row="0" col="0" text='{{item.userName[0]}}'></Label>
+                    <Label row="0" col="1" text='{{item.userName}}' class="contact-name-item-label"></Label>
                 </GridLayout>
             </ng-template>
         </ListView>
