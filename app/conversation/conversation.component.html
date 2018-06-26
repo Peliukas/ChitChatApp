@@ -7,7 +7,7 @@
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="*, auto" columns="320">
-        <ScrollView row="0" col="0" class="conversation-container">
+        <ScrollView row="0" col="0" class="conversation-container" #conversationContainer>
             <StackLayout>
                 <StackLayout *ngFor="let message of messages">
                     <Label [class.written-message]="message.userID !== userID"
@@ -19,9 +19,9 @@
             </StackLayout>
         </ScrollView>
         <GridLayout row="1" col="0" rows="50" columns="280, auto" backgroundColor="#C3C6D3" class="message-input-group">
-            <TextField row="0" col="0" class="message-body-input" text="{{messageBody}}" #messageBodyInput
-                       hint="Aa"></TextField>
-            <FlexBoxLayout row="0" col="1" (tap)="sendMessage(messageBodyInput.text); messageBodyInput.text = ''">
+            <TextField row="0" col="0" class="message-body-input" #messageBodyInput hint="Aa"></TextField>
+            <FlexBoxLayout row="0" col="1"
+                           (tap)="sendMessage(messageBodyInput.text); messageBodyInput.text = ''; scrollDown()">
                 <Label class="send-message-button" backgroundImage="res://send" height="25" width="25"></Label>
             </FlexBoxLayout>
         </GridLayout>
