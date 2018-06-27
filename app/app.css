@@ -13,7 +13,7 @@ refer to http://docs.nativescript.org/ui/theme.
 
 /* Common */
 .fa {
-    font-family: "FontAwesome";
+    font-family: FontAwesome, fontawesome-webfont;
 }
 
 .im {
@@ -31,6 +31,12 @@ refer to http://docs.nativescript.org/ui/theme.
     color: #ffffff;
     background-color: #3C59FD;
     margin: 20 0 30 0;
+}
+
+.go-back-btn {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .btn:highlighted {
@@ -105,6 +111,11 @@ refer to http://docs.nativescript.org/ui/theme.
 
 .flexbox-item Label {
     margin-bottom: 4;
+}
+
+.action-bar-title {
+    color: white;
+    font-size: medium;
 }
 
 .menu-container {

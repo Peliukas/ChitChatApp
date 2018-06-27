@@ -55,4 +55,7 @@ export class ConversationComponent implements AfterViewChecked {
         this.scrollList.nativeElement.scrollToVerticalOffset(this.scrollList.nativeElement.scrollableHeight, false)
     }
 
+    public goBack() {
+        this._routerExtensions.backToPreviousPage();
+    }
 }

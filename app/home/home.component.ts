@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
     public startConversation(userName: string) {
         this.zone.run(() => {
             this._routerExtensions.navigate(["conversation", userName], {
-                clearHistory: true,
+                clearHistory: false,
                 animated: true,
                 transition: {
                     name: "slideTop",

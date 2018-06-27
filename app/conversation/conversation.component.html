@@ -1,9 +1,12 @@
 <Page class="page">
     <Page.actionBar>
-        <ActionBar class="action-bar" title="ChitChat with {{userID}}">
-            <ActionItem android.position="actionBar" ios.position="right" (tap)="onProfileButtonTap()">
-                <Label text="&#xf2bd;" class="fa action-button"></Label>
-            </ActionItem>
+        <ActionBar class="action-bar" title="Chat with {{userID}}">
+            <FlexBoxLayout justifyContent="space-between" alignItems="center" width="280">
+                <FlexBoxLayout (tap)="goBack()">
+                    <Label class="go-back-btn" backgroundImage="res://back" height="20" width="20"></Label>
+                </FlexBoxLayout>
+                <Label class="action-bar-title" text="Chat with {{userID}}"></Label>
+            </FlexBoxLayout>
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="*, auto" columns="320">
