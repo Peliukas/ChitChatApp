@@ -54,6 +54,12 @@ refer to http://docs.nativescript.org/ui/theme.
     padding-right: 10;
 }
 
+.action-bar-icon {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .hr {
     background-color: #3C59FD;
     width: 95%;
@@ -116,6 +122,7 @@ refer to http://docs.nativescript.org/ui/theme.
 .action-bar-title {
     color: white;
     font-size: medium;
+    margin-left: 10;
 }
 
 .menu-container {
@@ -178,7 +185,6 @@ refer to http://docs.nativescript.org/ui/theme.
 }
 
 .search-for-contact-input-wrapper {
-    background: #A7CCED;
     padding: 5px;
 }
 

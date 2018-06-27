@@ -1,21 +1,18 @@
 <Page class="page">
     <Page.actionBar>
         <ActionBar class="action-bar" title="ChitChat">
-            <ActionItem android.position="actionBar" ios.position="right" (tap)="onProfileButtonTap()">
-                <Label text="&#xf2bd;" class="fa action-button"></Label>
-            </ActionItem>
-            <!--<ActionItem  android.position="actionBar" ios.position="right" (tap)="logout()">-->
-            <!--<Label text="&#xf2bd;" class="fa sign-out-alt"></Label>-->
-            <!--</ActionItem>-->
+            <FlexBoxLayout (tap)="onProfileButtonTap()" justifyContent="space-between" alignItems="center" width="280">
+                <FlexBoxLayout alignItems="center" justifyContent="space-around">
+                    <Label class="action-bar-icon" backgroundImage="res://chat" height="30" width="30"></Label>
+                    <Label class="action-bar-title" text="ChitChat"></Label>
+                </FlexBoxLayout>
+                <Label class="action-bar-icon" backgroundImage="res://search_white" height="25" width="25"
+                       (tap)="showContactSearchBar = !showContactSearchBar"></Label>
+            </FlexBoxLayout>
         </ActionBar>
     </Page.actionBar>
     <StackLayout>
-        <!--<StackLayout>-->
-        <!--<GridLayout columns="auto, 300" rows="60">-->
-        <!--&lt;!&ndash;<FlexBoxLayout col="0" row="0" backgroundImage="res://search" class="search-icon"></FlexBoxLayout>&ndash;&gt;-->
-        <!--</GridLayout>-->
-        <!--</StackLayout>-->
-        <GridLayout rows="40" columns="30, 270" class="search-for-contact-input-wrapper">
+        <GridLayout rows="40" columns="30, 270" class="search-for-contact-input-wrapper" *ngIf="showContactSearchBar">
             <FlexBoxLayout col="0" row="0" backgroundImage="res://search" class="search-icon"></FlexBoxLayout>
             <TextField col="1" row="0" class="search-for-contact-input" hint="Search"></TextField>
         </GridLayout>

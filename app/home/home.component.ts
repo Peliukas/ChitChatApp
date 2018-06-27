@@ -14,7 +14,7 @@ import {StackLayout} from "ui/layouts/stack-layout";
 export class HomeComponent implements OnInit {
     public loggedUser: string;
     public contactList: any[];
-
+    public showContactSearchBar: boolean = false;
 
     constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
         this.page.actionBarHidden = false;
@@ -61,16 +61,6 @@ export class HomeComponent implements OnInit {
             });
     }
 
-    onMenuButtonTap(args: EventData) {
-        // Navigate to corresponding page
-        const menuButtonParent = (<StackLayout>args.object).parent;
-        alert("Navigate to " + menuButtonParent.get("data-name"));
-    }
-
-    onProfileButtonTap() {
-        // Navigate to profile page here
-        alert("Navigate to profile page");
-    }
 
     public startConversation(userName: string) {
         this.zone.run(() => {
