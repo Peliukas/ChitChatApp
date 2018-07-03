@@ -1,10 +1,7 @@
-import {Component, ElementRef, NgZone, OnInit} from "@angular/core";
-import {Button} from "ui/button";
+import {Component, NgZone, OnInit} from "@angular/core";
 import {Kinvey, User} from 'kinvey-nativescript-sdk';
 import {RouterExtensions} from "nativescript-angular/router";
 import {Page} from "tns-core-modules/ui/page"
-import {EventData} from "data/observable";
-import {StackLayout} from "ui/layouts/stack-layout";
 
 @Component({
     selector: "Home",

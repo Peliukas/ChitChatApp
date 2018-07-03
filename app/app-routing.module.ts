@@ -2,6 +2,7 @@ import {NgModule} from "@angular/core";
 import {Routes} from "@angular/router";
 import {NativeScriptRouterModule} from "nativescript-angular/router";
 import {LoggedInLazyLoadGuard} from "./logged-in-lazy-load.guard";
+import {Http} from "@angular/http";
 
 const routes: Routes = [
     {path: "", redirectTo: "/home", pathMatch: "full"},
@@ -12,7 +13,8 @@ const routes: Routes = [
 
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],
-    exports: [NativeScriptRouterModule]
+    exports: [NativeScriptRouterModule],
+    providers: [Http]
 })
 export class AppRoutingModule {
 }

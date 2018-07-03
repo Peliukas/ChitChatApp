@@ -3,12 +3,19 @@ import {RouterExtensions} from "nativescript-angular/router";
 import {NgZone} from "@angular/core";
 import {Page} from "tns-core-modules/ui/page"
 
+const httpModule = require("http");
+import 'rxjs/add/operator/map';
+
+var applicationSettings = require("application-settings");
+
 @Component({
     selector: "Login",
     moduleId: module.id,
     templateUrl: "./login.component.html"
 })
 export class LoginComponent {
+
+    baseUrl = "https://cf1fc6b1.ngrok.io";
 
     constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
         this.page.actionBarHidden = true;
@@ -17,21 +24,19 @@ export class LoginComponent {
         this.page.statusBarStyle = "dark";
     }
 
-    login() {
-        /*if (Kinvey.User.getActiveUser() == null) {
-            Kinvey.User.loginWithMIC('http://example.com')
-                .then((user: Kinvey.User) => {
-                    this.navigateHome();
-                    console.log("user: " + JSON.stringify(user));
-                })
-                .catch((error: Kinvey.BaseError) => {
-                    alert("An error occurred. Check your Kinvey settings.");
-                    console.log("error: " + error);
-                });
-        } else {
-
-        }*/
-        this.navigateHome();
+    public login(email: string, pass: string) {
+        console.log("creds: " + email + ", pass: " + pass);
+        httpModule.request({
+            url: this.baseUrl + "/login",
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            content: JSON.stringify({
+                email: email, password: pass
+            })
+        }).then(response => {
+            console.log("user: ", response.content.toJSON());
+            this.navigateHome();
+        });
     }
 
     private navigateHome() {
