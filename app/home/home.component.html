@@ -4,7 +4,7 @@
             <FlexBoxLayout (tap)="onProfileButtonTap()" justifyContent="space-between" alignItems="center" width="280">
                 <FlexBoxLayout alignItems="center" justifyContent="space-around">
                     <Label class="action-bar-icon" backgroundImage="res://chat" height="30" width="30"></Label>
-                    <Label class="action-bar-title" text="ChitChat"></Label>
+                    <Label class="action-bar-title" text="{{userName ? userName : ''}}"></Label>
                 </FlexBoxLayout>
                 <Label class="action-bar-icon" backgroundImage="res://search_white" height="25" width="25"
                        (tap)="showContactSearchBar = !showContactSearchBar"></Label>
@@ -14,14 +14,30 @@
     <StackLayout>
         <GridLayout rows="40" columns="30, 270" class="search-for-contact-input-wrapper" *ngIf="showContactSearchBar">
             <FlexBoxLayout col="0" row="0" backgroundImage="res://search" class="search-icon"></FlexBoxLayout>
-            <TextField col="1" row="0" class="search-for-contact-input" hint="Search"></TextField>
+            <TextField col="1" row="0" class="search-for-contact-input" (textChange)="searchForUser($event)"
+                       hint="Search"></TextField>
         </GridLayout>
-        <ListView [items]="contactList" class="list-group">
+        <ListView *ngIf="contactList && contactList.length > 0 && !showContactSearchBar" [items]="contactList"
+                  class="list-group">
             <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
                 <GridLayout columns="50, auto, *" rows="50, auto, *" class="list-group-item"
                             (tap)="startConversation(item.id)">
                     <Label class="user-avatar-label" row="0" col="0" text='{{item.userName[0]}}'></Label>
                     <Label row="0" col="1" text='{{item.userName}}' class="contact-name-item-label"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+        <StackLayout *ngIf="(!contactList || contactList.length < 1) && !showContactSearchBar">
+            <Label text="You don't have any contacts yet"></Label>
+            <!--<Button text="Add "></Button>-->
+        </StackLayout>
+        <ListView *ngIf="foundUsers && foundUsers.length > 0 && showContactSearchBar" [items]="foundUsers"
+                  class="list-group">
+            <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                <GridLayout columns="50, auto, *" rows="50, auto, *" class="list-group-item"
+                            (tap)="startConversation(item._id)">
+                    <Label class="user-avatar-label" row="0" col="0" text='{{item.username[0]}}'></Label>
+                    <Label row="0" col="1" text='{{item.username}}' class="contact-name-item-label"></Label>
                 </GridLayout>
             </ng-template>
         </ListView>

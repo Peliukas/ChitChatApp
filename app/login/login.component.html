@@ -4,8 +4,9 @@
         <Label class="t-30 company-name" text="ChitChat"></Label>
     </StackLayout>
     <StackLayout class="login-input-fields">
-        <TextField #userEmail hint="Email address" keyboardType="email" class="login-input-field"></TextField>
-        <TextField #userPassword hint="Password" secure="true" class="login-input-field"></TextField>
+        <TextField #userEmail hint="Email address" text="1@2.com" keyboardType="email"
+                   class="login-input-field"></TextField>
+        <TextField #userPassword hint="Password" text="1111" secure="true" class="login-input-field"></TextField>
         <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18"
                 (tap)="login(userEmail.text, userPassword.text)" text="Log in"></Button>
     </StackLayout>

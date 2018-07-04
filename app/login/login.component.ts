@@ -5,6 +5,7 @@ import {Page} from "tns-core-modules/ui/page"
 
 const httpModule = require("http");
 import 'rxjs/add/operator/map';
+import User from "~/shared/User";
 
 var applicationSettings = require("application-settings");
 
@@ -25,7 +26,6 @@ export class LoginComponent {
     }
 
     public login(email: string, pass: string) {
-        console.log("creds: " + email + ", pass: " + pass);
         httpModule.request({
             url: this.baseUrl + "/login",
             method: "POST",
@@ -34,8 +34,14 @@ export class LoginComponent {
                 email: email, password: pass
             })
         }).then(response => {
-            console.log("user: ", response.content.toJSON());
-            this.navigateHome();
+            console.log("USER_id: ", response.content.toJSON()._id);
+            if (response.content.toJSON().token) {
+                applicationSettings.setString('baseUrl', this.baseUrl);
+                applicationSettings.setString('user_id', response.content.toJSON()._id);
+                applicationSettings.setString('user_name', response.content.toJSON().username);
+                applicationSettings.setString('user_token', response.content.toJSON().token);
+                this.navigateHome();
+            }
         });
     }
 
